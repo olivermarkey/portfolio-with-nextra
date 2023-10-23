@@ -1,5 +1,6 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import './public/linkedin.svg';
 
 
 const config: DocsThemeConfig = {
@@ -23,12 +24,14 @@ const config: DocsThemeConfig = {
     </React.Fragment>
   ),
   project: {
-    link: 'https://github.com/olivermarkey',
+    link: 'https://github.com/olivermarkey'
   },
   docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  darkMode: false,
   footer: {
-    text: 'Nextra Docs Template',
+    component: null
   },
+  feedback: { content: null }
 }
 
 export default config

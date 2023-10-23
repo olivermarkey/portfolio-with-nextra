@@ -32,7 +32,7 @@ const ProjectsSection = () => {
                 <h2 className='text-center text-4xl font-bold text-white mt-4 mb-4'>
                     My Projects
                 </h2>
-                <p className='text-center mb-8 md:mb-12'>Some description here</p>
+                <p className='text-white text-center mb-8 md:mb-12'>Some description here</p>
                 <ul ref={ref} className='grid md:grid-cols-3 gap-8 md:gap-12'>
                     {projectsData.map((project, index) =>
                         <motion.li

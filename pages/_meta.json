@@ -3,11 +3,6 @@
       "title": "Docs",
       "type": "page"
     },
-    "about": {
-        "title": "About",
-        "type": "page",
-        "href": "/docs/about"
-      },
       "contact": {
         "title": "LinkedIn ↗",
         "type": "page",
