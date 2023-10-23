@@ -5,7 +5,7 @@ const AboutSection = () => {
     return (
         <section className='text-white'>
             <div className='md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 justify-center' id='about'>
-                <div className='block relative mb-4'>
+                <div className='block relative mb-4 w-auto h-auto'>
                     <Image
                         src='/images/mirrors.jpg'
                         alt='About image'
@@ -15,7 +15,7 @@ const AboutSection = () => {
                     />
                 </div>
                 <div>
-                    <h2 className='text-4xl font-bold mb-4'>About Me</h2>
+                    <h2 className='text-4xl font-bold mb-4'>Hi there!</h2>
                     <p className='text-base md:text-lg'>
                         This is my full stack web developer with qa passion for creating websites about me text.
                         I am writing stuff here that will be replaced later so I can see what it looks like on

@@ -26,7 +26,7 @@ const NavBar = () => {
     return (
         <nav className='sticky top-0 z-10 w-full backdrop-blur flex-none transition-colors duration-500 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent'>
             <div className='flex flex-wrap items-center justify-between mx-auto px-4 py-4 mr-4'>
-                <Link href={"/"} className='text-2xl md:text-5xl text-white font-semibold'>Olly</Link>
+                <Link href={"/"} className='text-2xl md:text-3xl text-white font-semibold'>Olly</Link>
                 <div className='mobile-menu block md:hidden'>
                     {
                         !navbarOpen ? (

@@ -18,7 +18,7 @@ const config: DocsThemeConfig = {
       <meta property="og:title" content="Oliver Markey" />
       <meta property="og:description" content="Oliver Markey" />
       <meta name="apple-mobile-web-app-title" content="Oliver Markey" />
-      <link rel='icon' href='./public/vercel.svg'/>
+      <link rel='icon' href='next.svg'/>
       <title>Oliver Markey</title>
     </React.Fragment>
   ),

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/shuding/nextra-docs-template#readme",
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "framer-motion": "^10.16.4",
     "next": "^13.0.6",
     "nextra": "latest",
     "nextra-theme-docs": "latest",
