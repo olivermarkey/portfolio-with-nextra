@@ -5,12 +5,13 @@
     },
     "about": {
         "title": "About",
-        "type": "page"
+        "type": "page",
+        "href": "/docs/about"
       },
       "contact": {
-        "title": "Contact ↗",
+        "title": "LinkedIn ↗",
         "type": "page",
-        "href": "https://twitter.com/shuding_",
+        "href": "https://www.linkedin.com/in/oliver-markey-9a462a247/",
         "newWindow": true
       }
 }
