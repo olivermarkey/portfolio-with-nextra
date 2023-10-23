@@ -14,7 +14,7 @@ const ProjectsCard = ({ img, title, desc, link }) => {
                     </div>
                 </div>
             </div>
-            <div className='text-white rounded-b-xl bg-[#181818] px-4 mt-3'>
+            <div className='text-white rounded-b-xl bg-slate-700 px-4 py-2'>
                 <h5 className='text-xl font-semibold mb-2'>{title}</h5>
                 <p className='text-[#ADB7BE]'>{desc}</p>
             </div>
