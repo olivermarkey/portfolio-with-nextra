@@ -4,6 +4,7 @@ import Link from 'next/link';
 import NavLink from './NavLink';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MobileMenu from './MobileMenu';
+import Image from 'next/image';
 
 const navLinks = [
     {
@@ -26,7 +27,11 @@ const NavBar = () => {
     return (
         <nav className='sticky top-0 z-10 w-full backdrop-blur flex-none transition-colors duration-500 lg:border-b  border-slate-50/[0.06]  supports-backdrop-blur:bg-white/60 bg-transparent'>
             <div className='flex flex-wrap items-center justify-between mx-auto px-4 py-4 mr-4'>
-                <Link href={"/"} className='text-2xl md:text-3xl text-white font-semibold'>Olly</Link>
+                <div>
+                    <Link href={"/"} className='text-2xl md:text-3xl text-transparent font-bold bg-clip-text bg-gradient-to-r from-purple-700 to-blue-500'>
+                        OLLY
+                    </Link>
+                </div>
                 <div className='mobile-menu block md:hidden'>
                     {
                         !navbarOpen ? (
@@ -54,7 +59,7 @@ const NavBar = () => {
                     </ul>
                 </div>
             </div>
-            {navbarOpen ? <MobileMenu links={navLinks}/> : null}
+            {navbarOpen ? <MobileMenu links={navLinks} /> : null}
         </nav>
     )
 }
