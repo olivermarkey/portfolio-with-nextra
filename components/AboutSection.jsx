@@ -17,11 +17,13 @@ const AboutSection = () => {
                 <div>
                     <h2 className='text-4xl font-bold mb-4'>Hi there!</h2>
                     <p className='text-base md:text-lg'>
-                        This is my full stack web developer with qa passion for creating websites about me text.
-                        I am writing stuff here that will be replaced later so I can see what it looks like on
-                        the page and also check that it is respondsive for mobile. I dont know how much I need
-                        to write but I need to make sure to replace any apostrophes before I push to git so I
-                        do not have any errors with eslint.
+                        If you are here you probably already have my resume or at the very least have visited my LinkedIn.
+                        The purpose of this website is not to repeat my qualifications to you but more so to show you what
+                        I am capable of, and more so how I can help you. I am super interested in both software development 
+                        and cyber security, and would love to get a real world taste of either. To demonstrate my cyber 
+                        security, particularly penetration testing skills, check out the CTFs page on the nav bar! 
+                        <br/><br/>
+                        Thanks for taking the time to check out this website, I hope I hear from you soon!
                     </p>
                 </div>
             </div>

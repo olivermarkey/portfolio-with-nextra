@@ -1,0 +1,133 @@
+import Image from "next/image";
+
+# Rickdiculously Easy
+
+I found the Rickdiculously Easy CTF on [Vulnhub](https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/). It was a fun challenge based on
+the TV show Rick and Morty. To begin any virtual machine (VM) based CTF, the first step is to change the target and attacking machine to the
+network adapter. This ensures that I can attack the vulnerable system without disturbing anyone else and ensures that I am not opening myself
+up to vulnerabilities.
+
+## Information Gathering
+
+After powering up the vulnerable VM, I was met with the following screen:
+
+<div className="flex justify-center mt-4">
+  <Image src="/rick/image4.png" alt="image4" width={500} height={500} />
+</div>
+
+The 'Admin Console' gives us the target IP straight away, but for practice sake I
+started with an nmap scan of the IP address range.
+
+```console
+kali@kali:~$ nmap 192.168.56.1/24
+Starting Nmap 7.80 ( https://nmap.org ) at 2023-10-24 00:54 EDT
+Nmap scan report for 192.168.56.103
+Host is up (0.000018s latency).
+All 1000 scanned ports on 192.168.56.103 are closed
+
+Nmap scan report for 192.168.56.104
+Host is up (0.0032s latency).
+Not shown: 996 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+80/tcp   open  http
+9090/tcp open  zeus-admin
+
+Nmap done: 256 IP addresses (2 hosts up) scanned in 37.70 seconds
+```
+
+No surprise, the only other IP on the network is the same one shown on the vulnerable machine.
+
+## Scanning
+
+I did an nmap scan on the target IP:
+
+```bash
+kali@kali:~$ sudo nmap -Pn -sS -p- 192.168.56.104
+```
+
+This time I added some flags to ensure I did not miss anything.
+
+- The -Pn flag tells nmap to skip the ping test and scan every target host provided.
+- The -sS flag scans TCP ports and is stealthier than a connect scan.
+- The -p- flag will scan every possible port within a range, or simply all ports if no range is given.
+
+This scan returned a slightly different result:
+
+```console
+Starting Nmap 7.80 ( https://nmap.org ) at 2023-10-24 01:03 EDT
+Nmap scan report for 192.168.56.104
+Host is up (0.0012s latency).
+Not shown: 65528 closed ports
+PORT      STATE SERVICE
+21/tcp    open  ftp
+22/tcp    open  ssh
+80/tcp    open  http
+9090/tcp  open  zeus-admin
+13337/tcp open  unknown
+22222/tcp open  easyengine
+60000/tcp open  unknown
+MAC Address: 08:00:27:8C:C5:94 (Oracle VirtualBox virtual NIC)
+
+Nmap done: 1 IP address (1 host up) scanned in 19.84 seconds
+```
+
+## Gaining Access
+
+After some basic port scanning, I attempted to gain access to the server. Port 80 being opened caught my eye so I tried to access the
+IP via a browser. I found 'Morty's cool website':
+
+<div className="flex justify-center mt-4">
+  <Image src="/rick/image17.png" alt="image17" width={500} height={500} />
+</div>
+
+Nothing was really revealed on the webpage, so I tried a dictionary attack using Dirb. Dirb is a tool that checks for directories on a
+web server from a common wordlist.
+
+```bash
+kali@kali:~$ dirb http://192.168.56.104
+```
+
+The dirb attacked found a few useful directories:
+
+```console
+DIRB v2.22     The Dark Raver
+-----------------
+
+START_TIME: Tue Oct 24 01:20:00 2023
+URL_BASE: http://192.168.56.104/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://192.168.56.104/ ----
++ http://192.168.56.104/cgi-bin/ (CODE:403|SIZE:217)
++ http://192.168.56.104/index.html (CODE:200|SIZE:326)
+==> DIRECTORY: http://192.168.56.104/passwords/
++ http://192.168.56.104/robots.txt (CODE:200|SIZE:126)
+
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+-----------------
+END_TIME: Tue Oct 24 01:20:04 2023
+DOWNLOADED: 4612 - FOUND: 3
+
+```
+
+I tried to access the directories via the browser, first was passwords:
+
+<div className="flex justify-center mt-4">
+  <Image src="/rick/image14.png" alt="image14" width={500} height={500} />
+</div>
+
+This revealed the first flag and a passwords.html file:
+
+<div className="flex justify-center mt-4">
+  <Image src="/rick/image18.png" alt="image18" width={500} height={500} />
+</div>
+
+
+## Privlege Escalation
