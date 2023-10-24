@@ -4,6 +4,7 @@ import Link from 'next/link';
 import NavLink from './NavLink';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MobileMenu from './MobileMenu';
+import Image from 'next/image';
 
 const navLinks = [
     {
