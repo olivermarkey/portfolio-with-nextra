@@ -41,9 +41,8 @@ const Hero = () => {
                         We could achieve a lot together.
                     </p>
                     <div>
-                        <Link target='_blank' href='https://www.linkedin.com/in/oliver-markey-9a462a247/'>
-                            <button className='px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-purple-700 to-blue-500 hover:bg-slate-600 text-white'>Get in touch</button>
-                        </Link>
+                        <button className='px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-purple-700 to-blue-500 hover:bg-slate-600 text-white'>Get in touch</button>
+
                         <button className='px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-transparent hover:bg-slate-600 text-white border border-white mt-3'>Button 2</button>
                     </div>
                 </motion.div>
