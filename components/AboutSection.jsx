@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 const AboutSection = () => {
     return (
-        <section className='text-white'>
-            <div className='md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 justify-center' id='about'>
+        <section className='text-white scroll-smooth' id='about'>
+            <div className='md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 justify-center'>
                 <div className='block relative mb-4 w-auto h-auto'>
                     <Image
                         src='/images/mirrors.jpg'

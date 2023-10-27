@@ -1,6 +1,5 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
-import './public/linkedin.svg';
 
 
 const config: DocsThemeConfig = {

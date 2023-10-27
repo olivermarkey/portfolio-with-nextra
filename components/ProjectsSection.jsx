@@ -14,7 +14,7 @@ const projectsData = [{
     title: 'Travel agency website',
     description: 'Project description',
     image: '/images/travelPlanner1.png',
-    link: '/'
+    link: '/travelplanner'
 }];
 
 const ProjectsSection = () => {
