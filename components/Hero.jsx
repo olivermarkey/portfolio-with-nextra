@@ -19,23 +19,28 @@ const Hero = () => {
                     <h1 className='text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold'>
                         <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-blue-500'> Hello, I&apos;m{" "}
                         </span>
-                        <br></br>
+                        <div className='md:hidden'>
+                            Olly
+                        </div>
+                        <br />
                         {/* This should be changed so that the buttons are not moved */}
-                        <TypeAnimation
-                            sequence={[
-                                'Olly',
-                                1000,
-                                'Cyber Security',
-                                1000,
-                                'Web Development',
-                                1000,
-                                'excited to meet you.',
-                                1000
-                            ]}
-                            wrapper="span"
-                            speed={50}
-                            repeat={Infinity}
-                        />
+                        <div className='hidden md:block'>
+                            <TypeAnimation
+                                sequence={[
+                                    'Olly',
+                                    1000,
+                                    'Cyber Security',
+                                    1000,
+                                    'Web Development',
+                                    1000,
+                                    'excited to meet you.',
+                                    1000
+                                ]}
+                                wrapper="span"
+                                speed={50}
+                                repeat={Infinity}
+                            />
+                        </div>
                     </h1>
                     <p className='text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl'>
                         I cannot wait to see what we can achieve together.

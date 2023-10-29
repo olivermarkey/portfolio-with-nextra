@@ -2,20 +2,21 @@ import React, { useRef } from 'react';
 import ProjectsCard from './ProjectsCard';
 import { motion, useInView } from 'framer-motion';
 
-const projectsData = [{
-    id: 1,
-    title: 'Monash Client Procurement System',
-    description: 'Project description',
-    image: '/images/travelPlanner1.png',
-    link: '/'
-},
-{
-    id: 2,
-    title: 'Travel agency website',
-    description: 'Project description',
-    image: '/images/travelPlanner1.png',
-    link: '/travelplanner'
-}];
+const projectsData = [
+    {
+        id: 1,
+        title: 'Travel agency website',
+        description: 'Dynamic website and customer management system',
+        image: '/travelplanner/1.png',
+        link: '/travelplanner'
+    },
+    {
+        id: 2,
+        title: 'Monash Client Procurement System',
+        description: 'Customer and project management system',
+        image: '/images/mugie.png',
+        link: '/mugie'
+    }];
 
 const ProjectsSection = () => {
     const ref = useRef(null);
@@ -29,18 +30,17 @@ const ProjectsSection = () => {
     return (
         <section id='projects'>
             <div>
-                <h2 className='text-center text-4xl font-bold text-white mt-4 mb-4'>
+                <h2 className='text-center text-4xl font-bold text-white mt-4 mb-6'>
                     My Projects
                 </h2>
-                <p className='text-white text-center mb-8 md:mb-12'>Some description here</p>
                 <ul ref={ref} className='grid md:grid-cols-3 gap-8 md:gap-12'>
                     {projectsData.map((project, index) =>
                         <motion.li
-                        key={index} 
-                        variants={cardVariants} 
-                        initial='initial' 
-                        animate={isInView ? 'animate' : 'inital'} 
-                        transition={{ duration: 0.5, delay: index * 0.2 }}>
+                            key={index}
+                            variants={cardVariants}
+                            initial='initial'
+                            animate={isInView ? 'animate' : 'inital'}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}>
                             <ProjectsCard
                                 key={project.id}
                                 img={project.image}

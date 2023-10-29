@@ -12,16 +12,13 @@ const ContactSection = () => {
                     </h5>
                     <p className="text-[#ADB7BE] mb-4 max-w-md">
                         {" "}
-                        I&apos;m currently looking for new opportunities. Please feel 
+                        I&apos;m currently looking for new opportunities. Please feel
                         free to reach out to me via linkedin and I'll happily find
                         the time for a conversation!
                     </p>
                     <div className="socials flex flex-row gap-2">
-                        <Link href="github.com">
-                            Github
-                        </Link>
-                        <Link href="linkedin.com">
-                            LinkedIn
+                        <Link target='_blank' href='https://www.linkedin.com/in/oliver-markey-9a462a247/'>
+                            <button className='px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-purple-700 to-blue-500 hover:bg-slate-600 text-white font-bold'>LinkedIn</button>
                         </Link>
                     </div>
                 </div>
