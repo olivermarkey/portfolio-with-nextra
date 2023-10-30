@@ -14,16 +14,16 @@ export default function TravelPlanner() {
                 <img src="/images/mugie.png" />
                 <div className="mt-4 md:pr-20 md:pl-20">
                     <p className="text-white text-base">
-                        The TravelPlanner website was a project I worked on during one of my subjects at Monash University.
-                        During the project my team of 5 students used an iterative approach following agile methodology during
-                        development. Together we built a customer facing website similar to that of flight center where customers
-                        could create an account and submit an enquiry to be followed up by travel agents later. The website was
-                        also fully customizable via a CMS available to authenticated admin users. This meant that everything
-                        from the packages available to the businesses name was fully dynamic reducing the need for support down
-                        the line.
                         <br />
-                        This project was completed as a practice run for another unit where I worked with a real-world client
-                        to design and develop a business system.
+                        This project was the second half of my capstone unit at Monash University. To see the first part checkout 
+                        the TravelPlanner project listed under the projects section. During this project I worked with a client 
+                        from Monash University to assist in building a client procurement system. Unfortunately as this project 
+                        will eventually reach production I am unable to demonstrate it&apos;s full capability due to a deed of
+                        confidentiality. Once again during this project my team worked with an iterative development approach that
+                        followed the agile methodology and constantly implemented feedback based on our client&apos;s needs. We 
+                        developed a full-stack webapplication using the CakePHP framework. During this projected I developed the 
+                        system using HTML, CSS, javascript, PHP and mySQL. I also worked regularly with the client were I demonstrated
+                        communication, problem solving and objection handling skills.
                     </p>
                 </div>
                 <Footer />

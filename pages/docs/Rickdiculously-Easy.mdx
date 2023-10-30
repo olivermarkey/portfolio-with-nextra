@@ -3,7 +3,8 @@ import Image from "next/image";
 # Rickdiculously Easy
 
 I found the Rickdiculously Easy CTF on [Vulnhub](https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/). It was a fun challenge based on
-the TV show Rick and Morty. To begin any virtual machine (VM) based CTF, the first step is to change the target and attacking machine to the
+the TV show Rick and Morty. The challenge includes a number of flags, which are worth up to 130 points total.
+ To begin any virtual machine (VM) based CTF, the first step is to change the target and attacking machine to the
 network adapter. This ensures that I can attack the vulnerable system without disturbing anyone else and ensures that I am not opening myself
 up to vulnerabilities.
 
@@ -126,8 +127,86 @@ I tried to access the directories via the browser, first was passwords:
 This revealed the first flag and a passwords.html file:
 
 <div className="flex justify-center mt-4">
+  <Image src="/rick/image10.png" alt="image10" width={500} height={500} />
+</div>
+
+The passwords.html file revealed a password 'winter' commented in the html code.
+This would be useful if I could work out which user it belonged to. Next I decided to check the rest of the ports.
+First I accessed port 9090:
+
+<div className="flex justify-center mt-4">
+  <Image src="/rick/image21.png" alt="image21" width={500} height={500} />
+</div>
+
+Second flag, 20/130 points. Next I checked port 13337, this couldn't be accessed via the browser so I used a netcat listener
+to connect to the port:
+
+```console
+kali@kali:~$ nc 192.168.56.104 13337
+FLAG:{TheyFoundMyBackDoorMorty}-10Points
+```
+
+Third flag, 30/130 points. I also tried to connect to port 22222 but it was an SSH service and didn't provide any new information:
+
+```console
+kali@kali:~$ nc 192.168.56.104 22222
+SSH-2.0-OpenSSH_7.5
+```
+
+The last unkown port was 60000. I when I connected with a netcat listener I found a reverse shell, although it was quite useless.
+
+```console
+kali@kali:~$ nc 192.168.56.104 60000
+Welcome to Ricks half baked reverse shell...
+# ls
+FLAG.txt 
+# cat FLAG.txt                    
+FLAG{Flip the pickle Morty!} - 10 Points 
+```
+There was also the ftp port open, I attempted to access this one via the web browser and found another flag:
+
+<div className="flex justify-center mt-4">
   <Image src="/rick/image18.png" alt="image18" width={500} height={500} />
 </div>
 
+After checking all the ports, I went back to the dictionary attack. I checked the robots.txt file via the browser:
+
+<div className="flex justify-center mt-4">
+  <Image src="/rick/image19.png" alt="image19" width={500} height={500} />
+</div>
+
+This revealed a tracer tool in which I could inject code. With some help from another walkthrough I was able to reveal that 
+Summer, Morty and RickSanchez were the user profiles created on the server. At this point I could've used a bruteforce login tool
+like hydra to break the ssh connection, however it seemed likely that the user who's passowrd was 'winter' would be Summer...
 
 ## Privlege Escalation
+
+I was able to connect using Summer's login via SSH:
+
+<div className="flex justify-center mt-4">
+  <Image src="/rick/image8.png" alt="image8" width={500} height={500} />
+</div>
+
+I navigated through the directories on the target system looking for more information, finding a flag in the meantime.
+This puts us at 60/130 points.
+
+<div className="flex justify-center mt-4">
+  <Image src="/rick/image11.png" alt="image11" width={500} height={500} />
+</div>
+
+After looking around I found a password that I used to unzip a zipped txt file. This revealed another flag:
+
+<div className="flex justify-center mt-4">
+  <Image src="/rick/image1.png" alt="image1" width={500} height={500} />
+</div>
+
+There was one more directory called RICKS_SAFE that contained one final flag. This flag was encrypted but I used the previous flag
+to decrypt it.
+
+<div className="flex justify-center mt-4">
+  <Image src="/rick/image2.png" alt="image2" width={500} height={500} />
+</div>
+
+
+
+

@@ -30,11 +30,13 @@ export default function TravelPlanner() {
                     <p className="text-white text-base">
                         The TravelPlanner website was a project I worked on during one of my subjects at Monash University.
                         During the project my team of 5 students used an iterative approach following agile methodology during 
-                        development. Together we built a customer facing website similar to that of flight center where customers
+                        development. We worked closely with a mentor who was acting as our client to practice business analysis,
+                        development skills, client communication amongst many other intricacies.
+                        Together we built a customer facing website similar to that of flight center where customers
                         could create an account and submit an enquiry to be followed up by travel agents later. The website was
                         also fully customizable via a CMS available to authenticated admin users. This meant that everything
                         from the packages available to the businesses name was fully dynamic reducing the need for support down
-                        the line.
+                        the line. Admin users of the system we also able to manage all customer data via a CRM we create as well.
                         <br/>
                         This project was completed as a practice run for another unit where I worked with a real-world client 
                         to design and develop a business system.

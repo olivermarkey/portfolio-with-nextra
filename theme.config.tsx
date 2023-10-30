@@ -25,7 +25,7 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/olivermarkey'
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/olivermarkey/portfolio-with-nextra/tree/main',
   darkMode: false,
   footer: {
     component: null
